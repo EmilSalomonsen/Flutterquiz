@@ -8,7 +8,8 @@ admin.initializeApp({
 const db = admin.firestore();
 
 const topics = [
-    'Spillere'
+    'Spillere',
+    'gamblere'
 ]
 
 

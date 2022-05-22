@@ -18,3 +18,8 @@ cd testdata
 node quizzes.js
 node topics.js
 
+##Generate models.g.dart file
+import "part 'models.g.dart';"
+run: flutter pub run build_runner build
+
+

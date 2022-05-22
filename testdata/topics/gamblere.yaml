@@ -1,0 +1,10 @@
+# just to show that we handle missing images.
+quizzes:
+  -
+    title: Basics
+    description: 'just to show that we handle missing images.'
+    id: Spillere-basics
+
+id: gamblere
+img: gamblere.png
+title: gambler
