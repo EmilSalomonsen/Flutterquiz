@@ -1,0 +1,8 @@
+quizzes:
+  -
+    title: Basics
+    description: 'Hvem er Lionel Messi?'
+    id: Spillere-basics
+
+id: Spillere
+title: Spillere

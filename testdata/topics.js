@@ -7,19 +7,18 @@ admin.initializeApp({
 });
 const db = admin.firestore();
 
-const quizzes = [
-    'Spillere-basics',
-
+const topics = [
+    'Spillere'
 ]
 
 
-const update = async(quizId) => {
+const update = async(id) => {
 
-    const json = yaml.load(`quizzes/${quizId}.yaml`);
+    const json = yaml.load(`topics/${id}.yaml`);
 
     console.log(JSON.stringify(json));
 
-    const ref = db.collection('quizzes').doc(quizId);
+    const ref = db.collection('topics').doc(id);
 
     await ref.set(json, { merge: true });
 
@@ -27,6 +26,6 @@ const update = async(quizId) => {
 
 }
 
-for (const quiz of quizzes) {
-    update(quiz);
+for (const topic of topics) {
+    update(topic);
 }
