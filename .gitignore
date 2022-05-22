@@ -48,3 +48,6 @@ app.*.map.json
 
 #Ignores sensitive data
 credentials.json
+
+#Ignore build dependencies
+node_modules
