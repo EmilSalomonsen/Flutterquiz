@@ -1,0 +1,21 @@
+id: Spillere-basics
+title: 'Spillere Basics'
+questions:
+  -
+    text: 'Hvem er den bedste fodboldspiller?'
+    options:
+      -
+        correct: false
+        value: 'Cristiano Ronaldo'
+        detail: 'Meget forkert'
+      -
+        correct: true
+        value: 'Lionel Messi'
+        detail: 'Nailed It!'
+      -
+        detail: 'Nej han er for grådig til at blive god'
+        correct: false
+        value: 'Pengegrådige Kylian Mbappe'
+
+description: 'Fodboldspiller spørgsmål'
+topic: Spillere

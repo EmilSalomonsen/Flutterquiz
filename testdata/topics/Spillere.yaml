@@ -1,8 +1,9 @@
 quizzes:
   -
     title: Basics
-    description: 'Hvem er Lionel Messi?'
+    description: 'Bedste fodboldspillere'
     id: Spillere-basics
 
 id: Spillere
+img: Spillere.jpg
 title: Spillere
