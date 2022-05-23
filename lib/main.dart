@@ -3,7 +3,10 @@ import 'package:flutter/material.dart';
 // Import the firebase_core plugin
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutterapp/routes.dart';
+import 'package:flutterapp/services/firestore.dart';
+import 'package:flutterapp/services/models.dart';
 import 'package:flutterapp/theme.dart';
+import 'package:provider/provider.dart';
 import 'firebase_options.dart';
 
 void main() {
@@ -38,9 +41,13 @@ class _AppState extends State<MyApp> {
         }
         // Once complete, show your application
         if (snapshot.connectionState == ConnectionState.done) {
-          return MaterialApp(
-            theme: appTheme,
-            routes: appRoutes,
+          return StreamProvider(
+            create: (_) => FirestoreService().streamReport(),
+            initialData: Report(),
+            child: MaterialApp(
+              theme: appTheme,
+              routes: appRoutes,
+            ),
           );
         }
         // Otherwise, show something whilst waiting for initialization to complete

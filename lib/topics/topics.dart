@@ -1,6 +1,5 @@
-import 'dart:math';
+import 'dart:io';
 
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterapp/services/firestore.dart';
 import 'package:flutterapp/services/models.dart';
@@ -15,7 +14,7 @@ class TopicsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<List<Topic>>(
-      future: FirestoreService().getTopics(),
+        future: FirestoreService().getTopics(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const LoadingScreen();
@@ -23,27 +22,26 @@ class TopicsScreen extends StatelessWidget {
             return Center(
               child: ErrorMessage(message: snapshot.error.toString()),
             );
-          }else if (snapshot.hasData) {
-            debugPrint('we have data');
+          } else if (snapshot.hasData) {
             var topics = snapshot.data!;
-              return Scaffold(
-                appBar: AppBar(
-                  backgroundColor: Colors.deepPurple,
-                  title: Text('Topics'),
-                ),
-                body: GridView.count(
-                  primary: false,
-                  padding: const EdgeInsets.all(20.0),
-                  crossAxisSpacing: 10.0,
-                  crossAxisCount: 2,
-                  children: topics.map((topic) => TopicItem(topic: topic)).toList(),
-                ),
-                bottomNavigationBar: const BottomNavBar(),
-              );
+            return Scaffold(
+              appBar: AppBar(
+                backgroundColor: Colors.deepPurple,
+                title: Text('Topics'),
+              ),
+              body: GridView.count(
+                primary: false,
+                padding: const EdgeInsets.all(20.0),
+                crossAxisSpacing: 10.0,
+                crossAxisCount: 2,
+                children:
+                    topics.map((topic) => TopicItem(topic: topic)).toList(),
+              ),
+              bottomNavigationBar: const BottomNavBar(),
+            );
           } else {
             return const Text('No topics');
           }
-        }
-    );
+        });
   }
 }
