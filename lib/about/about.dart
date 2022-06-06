@@ -6,7 +6,15 @@ class AboutScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text('About'),
+      ),
+      body: Center(
+        child: ElevatedButton(
+          child: Text('topics'),
+          onPressed: () => Navigator.pushNamed(context, '/topics'),
+        ),
+      )
     );
   }
 }

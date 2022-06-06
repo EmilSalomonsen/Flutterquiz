@@ -29,7 +29,6 @@ class _AppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-      // Initialize FlutterFire:
       future: _initialization,
       builder: (context, snapshot) {
         // Check for errors
@@ -39,7 +38,6 @@ class _AppState extends State<MyApp> {
           child: Text('error'),
         );
         }
-        // Once complete, show your application
         if (snapshot.connectionState == ConnectionState.done) {
           return StreamProvider(
             create: (_) => FirestoreService().streamReport(),
@@ -50,7 +48,7 @@ class _AppState extends State<MyApp> {
             ),
           );
         }
-        // Otherwise, show something whilst waiting for initialization to complete
+        // show something whilst waiting for initialization to complete
         return const Directionality(
           textDirection: TextDirection.ltr,
           child: Text('loading'),
